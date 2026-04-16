@@ -1,0 +1,53 @@
+class Solution:
+    def letterCombinations(self, digits: str) -> List[str]:
+
+        if digits == "":
+            return []
+        d = {
+            "2": "abc",
+            "3": "def",
+            "4": "ghi",
+            "5": "jkl",
+            "6": "mno",
+            "7": "qprs",
+            "8": "tuv",
+            "9": "wxyz",
+        }
+
+        self.combinations = []
+        
+        def comb(curr, i):
+            if i >= len(digits):
+                self.combinations.append(curr)
+                return
+            for letter in d[digits[i]]:
+                comb(curr+letter,i+1)
+            return
+        comb("",0)
+
+        return self.combinations
+
+
+
+
+
+
+
+## ITERATIVE APPROACH
+        # combinations = [""]
+
+        # for digit in digits:
+        #     new_comb = []
+
+        #     for combo in combinations:
+        #         for letter in d[digit]:
+        #             new_comb.append(combo+letter)
+        #     combinations = new_comb
+        # return combinations
+
+
+
+
+        
+
+        
